@@ -11,7 +11,7 @@ export class GenresService extends BaseServiceCRUD<Genre> {
   }
 
   async createOne(createDto: CreateGenreDto) {
-    const genre = await Genre.findOne(createDto);
+    const genre = await Genre.findOne({ name: createDto.name });
     if (genre) {
       throw new BadRequestException('Genre is already exist');
     }
