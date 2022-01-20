@@ -13,10 +13,10 @@ jobs:
           install-yarn: true
           node-version: '15.9.0'
       - run: node --version
-      - run: echo "Linting"
-      - run: yarn lint
       - run: echo "Install Package"
       - run: yarn
+      - run: echo "Linting"
+      - run: yarn lint
       - run: echo "Execute Migration"
       - run: yarn migration
       - run: echo "Install Package"
