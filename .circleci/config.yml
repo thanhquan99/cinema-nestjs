@@ -3,7 +3,7 @@ orbs:
   node: circleci/node@4.7.0
 
 jobs:
-  install-node:
+  deploy:
     docker:
       - image: 'cimg/base:stable'
     steps:
@@ -13,44 +13,16 @@ jobs:
           install-yarn: true
           node-version: '14.17.3'
       - run: node --version
-
-  eslint:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
       - run: echo "Linting"
       - run: yarn lint
-
-  install-package:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
       - run: echo "Install Package"
       - run: yarn
-
-  execute-migration:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
       - run: echo "Execute Migration"
       - run: yarn migration
-  
-  start-project:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
       - run: echo "Install Package"
       - run: yarn start
 
 workflows:
   deploy-workflow:
     jobs:
-      - install-node
-      - eslint
-      - install-package
-      - execute-migration
-      - start-project
+      - deploy
