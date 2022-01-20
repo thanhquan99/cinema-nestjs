@@ -20,7 +20,7 @@ jobs:
       - run: echo "Execute Migration"
       - run: yarn migration
       - run: echo "Install Package"
-      - run: yarn start
+      - run: yarn build
 
 workflows:
   deploy-workflow:
