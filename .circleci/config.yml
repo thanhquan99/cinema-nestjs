@@ -11,7 +11,7 @@ jobs:
       - run: echo "Install node"
       - node/install:
           install-yarn: true
-          node-version: '14.17.3'
+          node-version: '15.9.0'
       - run: node --version
       - run: echo "Linting"
       - run: yarn lint
