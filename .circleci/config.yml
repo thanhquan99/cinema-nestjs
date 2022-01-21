@@ -21,8 +21,16 @@ jobs:
       - run: yarn migration
       - run: echo "Install Package"
       - run: yarn build
-
+  start-project:
+    docker:
+      - image: 'cimg/base:stable'
+    steps:
+      - checkout
+      - run: yarn build
 workflows:
   deploy-workflow:
     jobs:
       - deploy
+  start-project-workflow:
+    jobs:
+      - start-project
