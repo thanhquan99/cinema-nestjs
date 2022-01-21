@@ -32,6 +32,7 @@ workflows:
   deploy-workflow:
     jobs:
       - deploy
-  start-project-workflow:
-    jobs:
-      - start-project
+      - start-project:
+          requires:
+            - deploy
+
