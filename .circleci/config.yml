@@ -26,6 +26,7 @@ jobs:
       - image: 'cimg/base:stable'
     steps:
       - checkout
+      - run: yarn lint
       - run: yarn build
 workflows:
   deploy-workflow:
